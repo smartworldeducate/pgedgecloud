@@ -19,6 +19,9 @@ app.use(express.json());
 
 // Use the route
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
 app.use('/users', userRoutes);
 app.use('/products', productRoutes);
 app.use('/categories', categoryRoutes);
