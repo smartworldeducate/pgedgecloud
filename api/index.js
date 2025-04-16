@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const serverless = require('serverless-http');
 const path = require('path');
 const categoryRoutes = require('../routes/categoryRoutes');
 const userRoutes = require('../routes/userRoutes');
@@ -18,7 +19,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 
 // Use the route
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
@@ -28,6 +29,8 @@ app.use('/categories', categoryRoutes);
 app.use('/orders', orderRoutes);
 
 // Start server
-app.listen(3000, () => {
-  console.log('Server running on http://localhost:3000');
-});
+// app.listen(3000, () => {
+//   console.log('Server running on http://localhost:3000');
+// });
+module.exports = app;
+module.exports.handler = serverless(app);
