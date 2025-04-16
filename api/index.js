@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const categoryRoutes = require('./routes/categoryRoutes');
-const userRoutes = require('./routes/userRoutes');
-const productRoutes = require('./routes/productRoutes');
-const orderRoutes = require('./routes/orderRoutes');
+const categoryRoutes = require('../routes/categoryRoutes');
+const userRoutes = require('../routes/userRoutes');
+const productRoutes = require('../routes/productRoutes');
+const orderRoutes = require('../routes/orderRoutes');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 app.use(cors({
